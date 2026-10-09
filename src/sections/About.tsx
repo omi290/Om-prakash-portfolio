@@ -23,7 +23,7 @@ export const About = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 75%',
+          start: 'top 85%',
           end: 'top 25%',
           toggleActions: 'play none none reverse',
         }
@@ -40,33 +40,33 @@ export const About = () => {
       tl.fromTo(
         lineRef.current,
         { scaleY: 0, transformOrigin: 'top' },
-        { scaleY: 1, duration: 1, ease: 'power3.out' }
+        { scaleY: 1, duration: 0.4, ease: 'power3.out' }
       )
       .fromTo(
         headingRef.current,
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-        '-=0.6'
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' },
+        '-=0.4'
       )
       .fromTo(
         text1Ref.current,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-        '-=0.6'
+        { y: 15, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' },
+        '-=0.4'
       )
       .fromTo(
         text2Ref.current,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-        '-=0.6'
+        { y: 15, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' },
+        '-=0.4'
       );
 
       if (skillsRef.current && skillsRef.current.children) {
         tl.fromTo(
           skillsRef.current.children,
-          { y: 15, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' },
-          '-=0.4'
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'power2.out' },
+          '-=0.3'
         );
       }
     }, sectionRef);
@@ -78,10 +78,10 @@ export const About = () => {
     <section 
       ref={sectionRef} 
       id="about" 
-      className="relative w-full min-h-screen py-24 lg:py-32 bg-brand-dark flex flex-col justify-center overflow-hidden z-10"
+      className="relative w-full min-h-screen py-24 lg:py-32 bg-transparent flex flex-col justify-center overflow-hidden z-10"
     >
       {/* Background connecting elements from Hero */}
-      <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-brand-dark via-brand-dark to-transparent z-0 pointer-events-none -translate-y-full" />
+      
       
       {/* Restrained icy-blue subtle ambient glow */}
       <div 

@@ -1,17 +1,13 @@
 import { ArrowUpRight, Download } from 'lucide-react';
 import { TypewriterRole } from '../components/TypewriterRole';
 import { MagneticButton } from '../components/MagneticButton';
-import { HeroScene } from '../three/HeroScene';
 
 export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen min-h-[700px] overflow-hidden bg-brand-dark"
+      className="relative w-full h-screen min-h-[700px] overflow-hidden bg-transparent"
     >
-      {/* 3D Background — behind everything */}
-      <HeroScene />
-
       {/* ===== Content layer ===== */}
       <div className="relative z-10 h-full flex items-center">
         <div className="container mx-auto px-6 md:px-12">
@@ -40,7 +36,10 @@ export const Hero = () => {
 
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                <MagneticButton primary>
+                <MagneticButton 
+                  primary
+                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   EXPLORE MY WORK
                   <ArrowUpRight size={18} className="ml-1" />
                 </MagneticButton>
@@ -60,6 +59,18 @@ export const Hero = () => {
               {/* Outer container — positions the portrait */}
               <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[480px] xl:max-w-[520px] h-full">
 
+                {/* Subtle cool atmospheric glow behind the portrait */}
+                <div
+                  className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[80%] h-[60%] rounded-full opacity-[0.08] blur-[80px] pointer-events-none"
+                  style={{ background: 'radial-gradient(circle, #38bdf8 0%, transparent 70%)' }}
+                />
+
+                {/* Soft warm rim-light behind the silhouette */}
+                <div
+                  className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[50%] h-[35%] rounded-full opacity-[0.04] blur-[60px] pointer-events-none"
+                  style={{ background: 'radial-gradient(circle, #e4e4e7 0%, transparent 70%)' }}
+                />
+
                 {/* Radial mask to dissolve edges into darkness */}
                 <div className="absolute inset-0 portrait-mask">
                   <img
@@ -70,17 +81,30 @@ export const Hero = () => {
                   />
                 </div>
 
-                {/* Extra bottom fade for seamless blend */}
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent" />
-
-                {/* Subtle side fades */}
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/60 via-transparent to-brand-dark/60" />
-
-                {/* Very subtle blue atmospheric glow behind head area */}
+                {/* Bottom fade — multi-stop for cinematic shirt-to-darkness transition */}
                 <div
-                  className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[60%] h-[40%] rounded-full opacity-[0.06] blur-3xl"
-                  style={{ background: 'radial-gradient(circle, #38bdf8 0%, transparent 70%)' }}
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(to top, #09090b 0%, #09090b 8%, rgba(9,9,11,0.85) 20%, rgba(9,9,11,0.4) 35%, rgba(9,9,11,0.1) 50%, transparent 65%)'
+                  }}
                 />
+
+                {/* Side fades — soft left/right dissolution */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(to right, #09090b 0%, rgba(9,9,11,0.5) 12%, transparent 30%, transparent 70%, rgba(9,9,11,0.5) 88%, #09090b 100%)'
+                  }}
+                />
+
+                {/* Top fade — stronger to hide upper boundary */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(to bottom, #09090b 0%, rgba(9,9,11,0.8) 5%, rgba(9,9,11,0.3) 12%, transparent 22%)'
+                  }}
+                />
+
               </div>
             </div>
 

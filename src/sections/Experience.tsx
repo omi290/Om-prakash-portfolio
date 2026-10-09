@@ -21,7 +21,7 @@ export const Experience = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 75%',
+          start: 'top 85%',
           end: 'top 25%',
           toggleActions: 'play none none reverse',
         }
@@ -38,12 +38,12 @@ export const Experience = () => {
       tl.fromTo(
         lineRef.current,
         { scaleY: 0, transformOrigin: 'top' },
-        { scaleY: 1, duration: 1, ease: 'power3.out' }
+        { scaleY: 1, duration: 0.4, ease: 'power3.out' }
       )
       .fromTo(
         headingRef.current,
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' },
         '-=0.6'
       );
 
@@ -51,7 +51,7 @@ export const Experience = () => {
         tl.fromTo(
           cardsRef.current.children,
           { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, stagger: 0.2, ease: 'power2.out' },
+          { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: 'power2.out' },
           '-=0.4'
         );
       }
@@ -64,7 +64,7 @@ export const Experience = () => {
     <section 
       ref={sectionRef} 
       id="experience" 
-      className="relative w-full py-24 lg:py-32 bg-brand-dark flex flex-col justify-center overflow-hidden z-10"
+      className="relative w-full py-24 lg:py-32 bg-transparent flex flex-col justify-center overflow-hidden z-10"
     >
       <div className="container mx-auto px-6 md:px-12 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">

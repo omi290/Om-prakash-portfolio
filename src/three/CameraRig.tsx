@@ -12,17 +12,24 @@ export const CameraRig = () => {
     const idleX = Math.sin(time * 0.5) * 0.2;
     const idleY = Math.cos(time * 0.3) * 0.2;
 
-    // Pointer-based parallax
+    // Scroll-based parallax
+    // We map scroll position to camera Y position to move down through the 3D space
+    const scrollY = window.scrollY;
+    // Scale scroll value to a reasonable 3D space distance (e.g., 0.005)
+    const scrollOffset = scrollY * 0.005;
+
+    // Pointer-based parallax + scroll parallax
     const targetX = (pointer.x * 2) + idleX;
-    const targetY = (pointer.y * 2) + idleY;
+    // As we scroll down, we move the camera down (negative Y)
+    const targetY = (pointer.y * 2) + idleY - scrollOffset;
     const targetZ = 5 + Math.sin(time * 0.2) * 0.5;
 
     // Smooth damp camera position
     vec.current.set(targetX, targetY, targetZ);
     camera.position.lerp(vec.current, 0.05);
     
-    // Look at center slightly offset
-    camera.lookAt(0, 0, 0);
+    // Look slightly below the camera to give a feeling of looking forward/down
+    camera.lookAt(0, -scrollOffset, 0);
   });
 
   return null;

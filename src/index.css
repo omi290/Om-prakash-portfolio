@@ -41,19 +41,18 @@ a, button, input, select, textarea {
   text-shadow: 0 4px 60px rgba(0, 0, 0, 0.6);
 }
 
-/* Portrait mask — aggressive radial + edge fade */
+/* Portrait mask — multi-layer radial + edge dissolution */
 .portrait-mask {
   -webkit-mask-image:
-    radial-gradient(ellipse 80% 70% at 50% 35%, black 40%, transparent 75%);
+    radial-gradient(ellipse 85% 75% at 50% 38%, black 30%, transparent 72%);
   mask-image:
-    radial-gradient(ellipse 80% 70% at 50% 35%, black 40%, transparent 75%);
+    radial-gradient(ellipse 85% 75% at 50% 38%, black 30%, transparent 72%);
 }
 
-/* Portrait cinematic treatment */
+/* Portrait cinematic treatment — NATURAL COLOR with subtle grade */
 .portrait-cinematic {
   filter:
-    grayscale(100%)
-    contrast(1.4)
-    brightness(0.65);
-  mix-blend-mode: screen;
+    brightness(0.95)
+    contrast(1.15)
+    saturate(0.85);
 }

@@ -5,7 +5,7 @@ import { CameraRig } from './CameraRig';
 import { Particles } from './Particles';
 import { FloatingObjects } from './FloatingObjects';
 
-export const HeroScene = () => {
+export const BackgroundScene = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const HeroScene = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+    <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
       <Canvas 
         camera={{ position: [0, 0, 5], fov: 45 }}
         dpr={[1, 2]} // Optimize pixel ratio

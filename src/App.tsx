@@ -9,10 +9,12 @@ import { Projects } from './sections/Projects';
 import { ProjectsPage } from './sections/ProjectsPage';
 import { Achievements } from './sections/Achievements';
 import { Contact } from './sections/Contact';
+import { BackgroundScene } from './three/BackgroundScene';
 
 function App() {
   return (
     <div className='min-h-screen relative font-sans text-brand-light bg-brand-dark'>
+      <BackgroundScene />
       <CustomCursor />
       <Navbar />
       <Routes>

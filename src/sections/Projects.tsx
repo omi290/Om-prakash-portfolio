@@ -22,7 +22,7 @@ export const Projects = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 75%',
+          start: 'top 85%',
           end: 'top 25%',
           toggleActions: 'play none none reverse',
         }
@@ -39,21 +39,24 @@ export const Projects = () => {
       tl.fromTo(
         lineRef.current,
         { scaleY: 0, transformOrigin: 'top' },
-        { scaleY: 1, duration: 1, ease: 'power3.out' }
+        { scaleY: 1, duration: 0.4, ease: 'power3.out' }
       )
       .fromTo(
         headingRef.current,
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' },
         '-=0.6'
       );
 
       if (cardsRef.current && cardsRef.current.children) {
+        // Set perspective on the parent so 3D transforms work
+        gsap.set(cardsRef.current, { perspective: 1000 });
+        
         tl.fromTo(
           cardsRef.current.children,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, stagger: 0.2, ease: 'power2.out' },
-          '-=0.4'
+          { y: 50, z: -100, rotationX: 15, opacity: 0 },
+          { y: 0, z: 0, rotationX: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power2.out' },
+          '-=0.3'
         );
       }
     }, sectionRef);
@@ -65,7 +68,7 @@ export const Projects = () => {
     <section 
       ref={sectionRef} 
       id="projects" 
-      className="relative w-full py-24 lg:py-32 bg-brand-dark flex flex-col justify-center overflow-hidden z-10"
+      className="relative w-full py-24 lg:py-32 bg-transparent flex flex-col justify-center overflow-hidden z-10"
     >
       <div className="container mx-auto px-6 md:px-12 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
@@ -96,7 +99,7 @@ export const Projects = () => {
               {featuredProjects.map((project, index) => (
                 <div 
                   key={index} 
-                  className="opacity-0 group relative p-6 sm:p-8 lg:p-10 rounded-2xl border border-brand-gray/10 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-500 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-sm"
+                  className="opacity-0 group relative p-6 sm:p-8 lg:p-10 rounded-2xl border border-brand-gray/10 bg-white/[0.01] hover:bg-white/[0.03] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-500 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-sm"
                 >
                   <div className="relative z-10">
                     <h4 className="text-2xl sm:text-3xl font-bold text-brand-off mb-4 tracking-wide">
@@ -109,7 +112,7 @@ export const Projects = () => {
 
                     <div className="flex flex-wrap items-center gap-3 mb-8">
                       {project.tags.map(tag => (
-                        <span key={tag} className="px-3 py-1.5 text-xs sm:text-sm font-mono text-brand-off/80 border border-brand-gray/15 rounded-md bg-brand-dark/50">
+                        <span key={tag} className="px-3 py-1.5 text-xs sm:text-sm font-mono text-brand-off/80 border border-brand-gray/15 rounded-md bg-transparent/50">
                           {tag}
                         </span>
                       ))}

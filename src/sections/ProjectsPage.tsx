@@ -18,7 +18,7 @@ export const ProjectsPage = () => {
       gsap.fromTo(
         containerRef.current?.children ? Array.from(containerRef.current.children) : [],
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out' }
       );
     });
 
@@ -26,7 +26,7 @@ export const ProjectsPage = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-brand-dark pt-32 pb-24 px-6 md:px-12 relative overflow-hidden">
+    <main className="min-h-screen bg-transparent pt-32 pb-24 px-6 md:px-12 relative overflow-hidden">
       {/* Background Ambience */}
       <div 
         className="absolute top-0 left-1/2 w-[80%] h-[40%] rounded-full opacity-[0.03] blur-[100px] pointer-events-none -translate-x-1/2" 
@@ -56,7 +56,7 @@ export const ProjectsPage = () => {
           {secondaryProjects.map((project, index) => (
             <div 
               key={index}
-              className="flex flex-col p-8 rounded-2xl border border-brand-gray/10 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-sm"
+              className="flex flex-col p-8 rounded-2xl border border-brand-gray/10 bg-white/[0.01] hover:bg-white/[0.03] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-sm"
             >
               <div className="flex justify-between items-start mb-6">
                 <h2 className="text-2xl font-bold text-brand-off leading-tight pr-4">
@@ -81,7 +81,7 @@ export const ProjectsPage = () => {
               <div className="mt-auto">
                 <div className="flex flex-wrap gap-2 mb-8">
                   {project.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 text-xs font-mono text-brand-off/80 border border-brand-gray/15 rounded-md bg-brand-dark/50">
+                    <span key={tag} className="px-3 py-1 text-xs font-mono text-brand-off/80 border border-brand-gray/15 rounded-md bg-transparent/50">
                       {tag}
                     </span>
                   ))}

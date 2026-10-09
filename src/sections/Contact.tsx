@@ -83,7 +83,7 @@ export const Contact = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 75%',
+          start: 'top 85%',
           end: 'top 25%',
           toggleActions: 'play none none reverse',
         }
@@ -97,12 +97,12 @@ export const Contact = () => {
       tl.fromTo(
         leftColRef.current,
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }
       )
       .fromTo(
         rightColRef.current,
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' },
         '-=0.6'
       );
     }, sectionRef);
@@ -114,7 +114,7 @@ export const Contact = () => {
     <section 
       ref={sectionRef} 
       id="contact" 
-      className="relative w-full py-24 lg:py-32 bg-brand-dark flex flex-col justify-center overflow-hidden z-10"
+      className="relative w-full py-24 lg:py-32 bg-transparent flex flex-col justify-center overflow-hidden z-10"
     >
       <div className="container mx-auto px-6 md:px-12 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
@@ -198,7 +198,7 @@ export const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       disabled={isSubmitting}
-                      className="bg-brand-dark/50 border border-brand-gray/20 rounded-lg px-4 py-3 text-brand-light focus:outline-none focus:border-brand-accent/50 transition-colors duration-300 disabled:opacity-50"
+                      className="bg-transparent/50 border border-brand-gray/20 rounded-lg px-4 py-3 text-brand-light focus:outline-none focus:border-brand-accent/50 transition-colors duration-300 disabled:opacity-50"
                       placeholder="Om prakash"
                     />
                   </div>
@@ -215,7 +215,7 @@ export const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       disabled={isSubmitting}
-                      className="bg-brand-dark/50 border border-brand-gray/20 rounded-lg px-4 py-3 text-brand-light focus:outline-none focus:border-brand-accent/50 transition-colors duration-300 disabled:opacity-50"
+                      className="bg-transparent/50 border border-brand-gray/20 rounded-lg px-4 py-3 text-brand-light focus:outline-none focus:border-brand-accent/50 transition-colors duration-300 disabled:opacity-50"
                       placeholder="om@example.com"
                     />
                   </div>
@@ -233,7 +233,7 @@ export const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     disabled={isSubmitting}
-                    className="bg-brand-dark/50 border border-brand-gray/20 rounded-lg px-4 py-3 text-brand-light focus:outline-none focus:border-brand-accent/50 transition-colors duration-300 disabled:opacity-50"
+                    className="bg-transparent/50 border border-brand-gray/20 rounded-lg px-4 py-3 text-brand-light focus:outline-none focus:border-brand-accent/50 transition-colors duration-300 disabled:opacity-50"
                     placeholder="Project Inquiry"
                   />
                 </div>
@@ -250,7 +250,7 @@ export const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     disabled={isSubmitting}
-                    className="bg-brand-dark/50 border border-brand-gray/20 rounded-lg px-4 py-3 text-brand-light focus:outline-none focus:border-brand-accent/50 transition-colors duration-300 resize-none disabled:opacity-50"
+                    className="bg-transparent/50 border border-brand-gray/20 rounded-lg px-4 py-3 text-brand-light focus:outline-none focus:border-brand-accent/50 transition-colors duration-300 resize-none disabled:opacity-50"
                     placeholder="Hello, I'd like to talk about..."
                   />
                 </div>
