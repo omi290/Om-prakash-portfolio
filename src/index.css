@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  
+  --color-brand-light: #ffffff;
+  --color-brand-off: #e4e4e7;
+  --color-brand-gray: #a1a1aa;
+  --color-brand-dark: #09090b;
+  --color-brand-accent: #38bdf8;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-dark text-brand-light font-sans overflow-x-hidden antialiased;
+    cursor: none;
+  }
+}
+
+/* Hide default cursor on interactive elements */
+a, button, input, select, textarea {
+  cursor: none;
+}
+
+/* Hero name shadow for depth */
+.hero-text-shadow {
+  text-shadow: 0 4px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Portrait mask — aggressive radial + edge fade */
+.portrait-mask {
+  -webkit-mask-image:
+    radial-gradient(ellipse 80% 70% at 50% 35%, black 40%, transparent 75%);
+  mask-image:
+    radial-gradient(ellipse 80% 70% at 50% 35%, black 40%, transparent 75%);
+}
+
+/* Portrait cinematic treatment */
+.portrait-cinematic {
+  filter:
+    grayscale(100%)
+    contrast(1.4)
+    brightness(0.65);
+  mix-blend-mode: screen;
+}
